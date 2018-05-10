@@ -32,17 +32,22 @@ public class TwoPlayer_Select : MonoBehaviour {
     static int Player1;
     static int Player2;
 
+    public GameObject Filler;
+    public GameObject TownHealth;
+    public GameObject LoadScreen;
+
     bool FirstChoice = false;
     bool SecondChoice = false;
 
     static bool Allset2 = false;
-    public GameObject Filler;
 
-    public void Start()
+    public void Awake()
     {
         if (Allset2)
         {
             Filler.gameObject.SetActive(true);
+            TownHealth.gameObject.SetActive(true);
+            TownHealth.transform.localPosition = new Vector3(-175, 356.5f, 0);
         }
 
      //-----------------------------------------------------------------------------
@@ -192,6 +197,7 @@ public class TwoPlayer_Select : MonoBehaviour {
             Player2 = 1;
             P1Button.interactable = false;
             SecondChoice = true;
+            LoadScreen.gameObject.SetActive(true);
         }
     }
 
@@ -210,6 +216,7 @@ public class TwoPlayer_Select : MonoBehaviour {
             Player2 = 2;
             P2Button.interactable = false;
             SecondChoice = true;
+            LoadScreen.gameObject.SetActive(true);
         }
     }
 
@@ -228,6 +235,7 @@ public class TwoPlayer_Select : MonoBehaviour {
             Player2 = 3;
             P3Button.interactable = false;
             SecondChoice = true;
+            LoadScreen.gameObject.SetActive(true);
         }
     }
 
@@ -246,6 +254,7 @@ public class TwoPlayer_Select : MonoBehaviour {
             Player2 = 4;
             P4Button.interactable = false;
             SecondChoice = true;
+            LoadScreen.gameObject.SetActive(true);
         }
     }
 

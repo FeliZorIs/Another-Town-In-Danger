@@ -8,8 +8,9 @@ public class MainMenu : MonoBehaviour
     public Canvas TwoPlayer_Select;
     public Canvas ThreePlayer_Select;
     public Canvas FourPlayer_Select;
-
     public Canvas MultiplayerSelect;
+    public Canvas Controls;
+    public Canvas Tips;
     
     //--------------------------------------------------------------------------
     //                           Menu Select
@@ -39,9 +40,21 @@ public class MainMenu : MonoBehaviour
         FourPlayer_Select.gameObject.SetActive(true);
     }
 
+    //opens up multiplayer menu
     public void MultiplayerMenu()
     {
         MultiplayerSelect.gameObject.SetActive(true);
+    }
+
+    //Opens Controls
+    public void ControlsPage()
+    {
+        Controls.gameObject.SetActive(true);
+    }
+
+    public void tipsPage()
+    {
+        Tips.gameObject.SetActive(true);
     }
 
     //-------------------------------------------------------------------------
@@ -71,5 +84,21 @@ public class MainMenu : MonoBehaviour
     public void MM_Back()
     {
         MultiplayerSelect.gameObject.SetActive(false);
+    }
+
+    public void C_Back()
+    {
+        Controls.gameObject.SetActive(false);
+    }
+
+    public void PreviousPage()
+    {
+        Tips.gameObject.SetActive(false);
+    }
+
+    public void SuperBack()
+    {
+        Controls.gameObject.SetActive(false);
+        Tips.gameObject.SetActive(false);
     }
 }

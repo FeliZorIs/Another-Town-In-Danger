@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ButtonManager : MonoBehaviour {
 
     public GameObject pauseMenu;
+    public GameObject LoadScreen;
     public bool isMainMenu;
     public static int PlayerChoice;
 
@@ -18,9 +19,11 @@ public class ButtonManager : MonoBehaviour {
     public GameObject P2_health;
     public GameObject P3_health;
     public GameObject P4_health;
+    public GameObject TownHealth;
 
-    public void Start()
+    public void Awake()
     {
+        Time.timeScale = 1;
         if (PlayerChoice == 1)
         {
             PlayerI.gameObject.SetActive(true);
@@ -30,6 +33,7 @@ public class ButtonManager : MonoBehaviour {
             PlayerI.GetComponentInChildren<Player1AsP2>().enabled = false;
             PlayerI.GetComponentInChildren<Player1AsP3>().enabled = false;
             PlayerI.GetComponentInChildren<Player1AsP4>().enabled = false;
+            TownHealth.gameObject.SetActive(true);
         }
 
         if (PlayerChoice == 2)
@@ -41,6 +45,7 @@ public class ButtonManager : MonoBehaviour {
             PlayerII.GetComponentInChildren<Player2AsP2>().enabled = false;
             PlayerII.GetComponentInChildren<Player2AsP3>().enabled = false;
             PlayerII.GetComponentInChildren<Player2AsP4>().enabled = false;
+            TownHealth.gameObject.SetActive(true);
         }
 
         if (PlayerChoice == 3)
@@ -52,6 +57,7 @@ public class ButtonManager : MonoBehaviour {
             PlayerIII.GetComponentInChildren<Player3AsP2>().enabled = false;
             PlayerIII.GetComponentInChildren<Player3AsP3>().enabled = false;
             PlayerIII.GetComponentInChildren<Player3AsP4>().enabled = false;
+            TownHealth.gameObject.SetActive(true);
         }
 
         if (PlayerChoice == 4)
@@ -63,6 +69,7 @@ public class ButtonManager : MonoBehaviour {
             PlayerIV.GetComponentInChildren<Player4AsP2>().enabled = false;
             PlayerIV.GetComponentInChildren<Player4AsP3>().enabled = false;
             PlayerIV.GetComponentInChildren<Player4AsP4>().enabled = false;
+            TownHealth.gameObject.SetActive(true);
         }
     }
 
@@ -72,6 +79,7 @@ public class ButtonManager : MonoBehaviour {
         {
             pauseGame();
         }
+
     }
 
     public void pauseGame()
@@ -103,12 +111,14 @@ public class ButtonManager : MonoBehaviour {
 
     public void MainMenu()
     {
+        LoadScreen.gameObject.SetActive(true);
         SceneManager.LoadScene("MainMenu");
     }
 
     public void playerOne()
     {
         PlayerChoice = 1;
+        LoadScreen.gameObject.SetActive(true);
         SceneManager.LoadScene("Level1");
     }
 
@@ -116,18 +126,27 @@ public class ButtonManager : MonoBehaviour {
     {
         PlayerChoice = 2;
         SceneManager.LoadScene("Level1");
+        LoadScreen.gameObject.SetActive(true);
     }
 
     public void playerThree()
     {
         PlayerChoice = 3;
         SceneManager.LoadScene("Level1");
+        LoadScreen.gameObject.SetActive(true);
     }
 
     public void playerFour()
     {
         PlayerChoice = 4;
         SceneManager.LoadScene("Level1");
+        LoadScreen.gameObject.SetActive(true);
+    }
+
+    public void restartLevel()
+    {
+        LoadScreen.gameObject.SetActive(true);
+        Application.LoadLevel(Application.loadedLevel);
     }
 
     //--------------------------------------------------------------------------------------

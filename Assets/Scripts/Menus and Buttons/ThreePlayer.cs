@@ -38,6 +38,8 @@ public class ThreePlayer : MonoBehaviour {
     Vector3 Player3Icon = new Vector3(50, -50, 0);
 
     public GameObject Filler;
+    public GameObject TownHealth;
+    public GameObject LoadScreen;
 
     static int Player1;
     static int Player2;
@@ -49,13 +51,13 @@ public class ThreePlayer : MonoBehaviour {
 
     static bool AllSet;
 
-    public void Start()
+    public void Awake()
     {
-        Debug.Log(FirstChoice3 + " " + SecondChoice3 + " " + ThirdChoice3);
-
         if (AllSet == true)
         {
             Filler.gameObject.SetActive(true);
+            TownHealth.gameObject.SetActive(true);
+            TownHealth.transform.localPosition = new Vector3(-175, 0, 0);
         }
 
         //-----------------------------------------------------------------------------
@@ -289,6 +291,7 @@ public class ThreePlayer : MonoBehaviour {
             Player3 = 1;
             P1Button.interactable = false;
             ThirdChoice3 = true;
+            LoadScreen.gameObject.SetActive(true);
         }
     }
 
@@ -314,6 +317,7 @@ public class ThreePlayer : MonoBehaviour {
             Player3 = 2;
             P2Button.interactable = false;
             ThirdChoice3 = true;
+            LoadScreen.gameObject.SetActive(true);
         }
     }
 
@@ -339,6 +343,7 @@ public class ThreePlayer : MonoBehaviour {
             Player3 = 3;
             P3Button.interactable = false;
             ThirdChoice3 = true;
+            LoadScreen.gameObject.SetActive(true);
         }
     }
 
@@ -364,6 +369,7 @@ public class ThreePlayer : MonoBehaviour {
             Player3 = 4;
             P4Button.interactable = false;
             ThirdChoice3 = true;
+            LoadScreen.gameObject.SetActive(true);
         }
     }
 

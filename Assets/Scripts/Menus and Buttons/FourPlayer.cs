@@ -41,6 +41,8 @@ public class FourPlayer : MonoBehaviour {
     Vector3 Player4Icon = new Vector3(50, -50, 0);
 
     public GameObject Filler;
+    public GameObject TownHealth;
+    public GameObject LoadScreen;
 
     static int Player1;
     static int Player2;
@@ -54,11 +56,13 @@ public class FourPlayer : MonoBehaviour {
 
     static bool AllSet;
 
-    public void Start()
+    public void Awake()
     {
         if (AllSet == true)
         {
             Filler.gameObject.SetActive(true);
+            TownHealth.gameObject.SetActive(true);
+            TownHealth.transform.localPosition = new Vector3(-175, 0, 0);
         }
 
         //-----------------------------------------------------------------------------
@@ -76,9 +80,9 @@ public class FourPlayer : MonoBehaviour {
             P1_health.transform.GetChild(1).transform.localPosition = Player1Icon;
 
             Warrior.GetComponentInChildren<ATIND_PlayerController>().enabled = true;
-            Warrior.GetComponentInChildren<Player2AsP2>().enabled = false;
-            Warrior.GetComponentInChildren<Player2AsP3>().enabled = false;
-            Warrior.GetComponentInChildren<Player2AsP4>().enabled = false;
+            Warrior.GetComponentInChildren<Player1AsP2>().enabled = false;
+            Warrior.GetComponentInChildren<Player1AsP3>().enabled = false;
+            Warrior.GetComponentInChildren<Player1AsP4>().enabled = false;
         }
 
         if (Player1 == 2)
@@ -364,6 +368,7 @@ public class FourPlayer : MonoBehaviour {
             Player4 = 1;
             P1Button.interactable = false;
             FourthChoice = true;
+            LoadScreen.gameObject.SetActive(true);
         }
     }
 
@@ -396,6 +401,7 @@ public class FourPlayer : MonoBehaviour {
             Player4 = 2;
             P2Button.interactable = false;
             FourthChoice = true;
+            LoadScreen.gameObject.SetActive(true);
         }
     }
 
@@ -428,6 +434,7 @@ public class FourPlayer : MonoBehaviour {
             Player4 = 3;
             P3Button.interactable = false;
             FourthChoice = true;
+            LoadScreen.gameObject.SetActive(true);
         }
     }
 
@@ -460,6 +467,7 @@ public class FourPlayer : MonoBehaviour {
             Player4 = 4;
             P4Button.interactable = false;
             FourthChoice = true;
+            LoadScreen.gameObject.SetActive(true);
         }
     }
 
